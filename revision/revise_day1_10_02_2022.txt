@@ -1,0 +1,292 @@
+
+// We created in eclipse
+// When we created class in eclipse it got created with access specifier public.
+// syso (ctrl+spacebar)
+public class Hello {
+
+	public static void main(String[] args) {
+	System.out.println("Hello Friends!!!");
+
+	}
+
+}
+
+
+
+// We copied from Lex.
+// When we copied from Lex, we dont have any public access specifier with class
+class Welcome {
+	public static void main(String[] args) {
+		System.out.println("Hello World! Welcome to Java Programming!");
+	}
+}
+
+
+/* The observation for the above two codes, The first code is having public access specifier
+whereas second example is having no specifier which means the default access specifier. 
+The conclusion is a class can have public and default access specifiers only it cannot have
+private or protected which means we cannot write the following:
+
+// We get compilation error
+   private class Welcome {
+    public static void main(String[] str){
+        System.out.println("Hello");
+    }  
+  }
+
+  protected class Welcome {
+    {
+     public static void main(String[] str){
+        System.out.println("Hello");
+    } 
+    }
+
+/* keywords====> special words which is understood by the compiler. class, public, static , void 
+class==> It is used for defining a class.
+public===> access specifiers which decides whether the members within the class are accessible
+outside or inside the class or by derived classes ( Inheritance)
+static===> modifier which is used to declare the member as part of class and not associated with object.
+
+System.out.println====> This is used to print or show or display something on the screen/console.  
+Welcome, System, String===> These are all classes. Welcome is a user defined class which is
+defined the coder/programmer and System and String are predefined classes which are part of
+java library ( JAVA API ( Application programming interface ) where we have collection of classes
+and interfaces)
+We have a convention of writing these classes . The class name will be starting whith uppercase.
+It is the convention ( standard ) which we follow for class name. Our user defined class can be 
+in starting with small case or we can following any case to write the class but for predefined
+classes we are bound to follow the case. So if we are writing System as system or String as string
+it will show compilation error. But we write Welcome as welcome, it wont show any compilation 
+error but it is not a good practice to do so.
+main===> is a method and which acts as the starting point of the java code or program. If we
+don't have main method our java program wont execute.
+String args[]===> It holds command line argument. So command line arguments are the arguments
+which we pass while executing the java code.
+
+
+*/
+What about the java file name? Do we expect that file name and class should be same?
+ans: File name and class name can be same or different if the class is with default access
+specifier. If the class is declared as public then it is mandatory to keep the class name
+and the java file name which is containing the class , same.
+
+-------------------------------------------------------
+// So the following code is incorrect as we are writing a statement outside a method.
+// In our example it is outside the main method. It will show compilation error.   
+class Welcome {
+       System.out.println("Hello");
+    public static void main(String[] args) {
+    System.out.println("Hello");
+    }
+   }
+--------------------------------------------------------------------------------------------
+class Welcome {
+      
+    public static void main(String[] args) {
+    System.out.println("Hello");
+    }
+   }
+// Method in Java should be inside a class. So this code is incorrect as we are writing 
+// display method outside the class Welcome
+   public void display() {
+----------------------------------------------------------------------------------------------------
+   }
+
+
+
+   int i=0;
+   if(i==1) {}
+   But instead writing the above
+   if(i=1) {}
+   if(1)   {}  if true
+   ---------------------------------------------------------------------------------
+   In java the above way writing will show compilation error because in java if takes boolean 
+  expression and any other data type in the expression is not allowed
+  if(expression) {}
+  if(boolean) {} boolean means either we can have true or false
+  if(i=1) {} if(1) {} in java in the expression we cannot pass int. It starts showing compilation
+  ----------------------------------------------------------------------------------------
+keywords are written in smallcase. keywords cannot be used as identifier ( name of the class, method,
+variable).
+   class else {} // else cannot be a identifier for class or variable or method.
+----------------------------------------------------------------------------------------
+We have two catagories of data type:
+1) Primitive- 8 primitive data types ( char, byte, short, int, long, float, double andd boolean )
+2) Non-primitive -classes, arrays , interfaces
+----------------------------------------------------------------------------------------------
+char 2 bytes
+byte 1 byte
+short 2 bytes
+int   4 bytes
+long  8 bytes
+float 4 bytes
+double 8 bytes 
+boolean 1 bit
+-----------------------------------------------------------------------------------
+int num1=1;
+int num2=2;
+int result=num1+num2;
+int        int  int
+
+Implicit conversion:-
+int num1=10;
+double num2=12.34;
+double result=num1+num2; // In an expression if we have variables of different data type
+                   // the data type which is having smaller size gets converted into the
+                   // type which larger in size. In the expression num1 is of int type with size 4
+                   // bytes and num2 is of double with 8 bytes , int this case num1 will be
+                   // implicitly converted into double type
+
+int num=10;
+double d=num; // Implicit conversion where num can be assigned to a double type variable
+             // beacuse double variable is having larger size in bytes as comparison to 
+             // in variable/
+---------------------------------------------------------------------------------------------
+Explicit conversion ( Type casting)
+double d=12.45;
+int num=d;   // compilation error
+
+int num=(int)d//type casting.
+------------------------------------------------------------------------------------------------------
+So till now we have discussed?
+* Why java?
+* The first program with java.
+* keywords
+* identifiers
+* variables
+* data types 
+     *** primitive
+     *** non primitive datatypes
+* operators and their precendence
+* type conversion and type casting
+---------------------------------------------------------------------------------------------------
+Q Till now we are writing everything in the main method. So can we go for writing some other methods?
+A Yes. So let us see. We are planning to greet people with Hello World!!!!!!!!
+The following code is with error because we are trying to access non static method from static 
+main method.
+    package infosys.demo.methods;
+    
+    public class Demo1 {
+      
+     void greet(){
+       System.out.println("Hello World!!!");
+     }
+    
+
+     public static void main(String args[]) {
+        greet();
+     }
+   }
+-------------------------------------------------------------------
+// The solution is we made greet as a static method.    
+    package infosys.demo.methods;
+    
+    public class Demo2 {
+      
+     static void greet(){
+       System.out.println("Hello World!!!");
+     }
+    
+    // static methods cannot access non static
+     // methods
+     public static void main(String args[]) {
+        greet();
+     }
+   }
+ 
+----------------------------------------------------------------------------------------------------
+Q Do we need to pass any parameter to the method?
+A No. Because we are not discussing about different strings to be displayed. Here we are 
+planning to display the string/constant or literal "Hello World!!!";
+-----------------------------------------------------------------------------------------------------
+We need to accept two numbers and pass to the add method and display the sum in the add
+static method   
+
+package infosys.demo.methods;
+    
+    public class Demo3 {
+      
+     static void add(int num1, int num2){
+       int result=num1+num2;
+       System.out.println(result);
+     }
+    
+    // static methods cannot access non static
+     // methods
+     public static void main(String args[]) {
+        add(1,2);
+     }
+   }
+
+  ------------------------------------------------------------------------
+We need to accept two numbers and pass to the add method and return the result to main method and
+and we need to display the output in the main method.
+  
+
+package infosys.demo.methods;
+    
+    public class Demo4 {
+      
+     static int add(int num1, int num2){
+       int result=num1+num2;
+       return result;
+     }
+    
+    
+     public static void main(String args[]) {
+        int result=add(1,2);
+        System.out.print(result);
+     }
+   }
+----------------------------------------------------------------------------------------------
+Programming constructs:
+1) Condition check
+2) Iterations/loops
+
+Till now we have seen sequential execution which means the statements are executed one after
+the other without skipping any statement.
+
+
+public class Customer2 {
+	public static void main(String[] args) {
+		String customerType = "Guest";
+		int quantity = 2;
+		int unitPrice = 10;
+		int totalCost = 0;
+		int discount = 5;
+		int deliveryCharge = 5;
+		totalCost = (unitPrice * quantity);
+		if (customerType == "Regular") {
+			totalCost = totalCost - (totalCost * discount / 100);
+			System.out.println("You are a regular customer and have got 5% discount");
+			System.out.println("The total cost to be paid is " + totalCost);
+			if (totalCost >= 20) {
+				System.out.println("You have got a gift voucher!!!!");
+			}
+		} else if (customerType == "Guest") {
+			totalCost = totalCost + deliveryCharge;
+			System.out.println("You need to pay an additional delivery charge of $5");
+			System.out.println("The total cost to be paid is " + totalCost);
+		} else {
+			System.out.println("Invalid selection");
+		}
+	}
+}
+
+--------------------------------------------------------------------------------------
+* Loops or iterations we have 3 steps to take care of:
+** declaration and initialisation of a counter whose value decides whether to enter a loop or not.
+** condition check where after looking at the initial value of the counter , control enters the
+   loop or it remains outside the loop.
+** Re-initialisation of the counter so that condition check can decide to have the control
+within the loop or move out of the loop.
+
+// For loops we have 3 constructs:-
+
+* while loop
+* do while loop
+* for loop 
+-----------------------------------------------------------------------------------
+
+
+
